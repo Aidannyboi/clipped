@@ -26,6 +26,12 @@ const GameSchema = new Schema (
             required : [true, "The game has to have been made by someone! Tell us who made it!"],
 
             maxLength : [225, "That seems like a little to much. lets keep it under 225 characters."]
+        },
+
+        GameImage: {
+            type: Buffer,
+
+            required : [true, "To prevent the spam of fake or incomplete games you must have a photo included."]
         }
 
 
