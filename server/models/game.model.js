@@ -1,7 +1,7 @@
 import {model, Schema} from "mongoose"
 
 const GameSchema = new Schema (
-    {
+    { 
         GameName: {
             type: String,
 
@@ -37,5 +37,11 @@ const GameSchema = new Schema (
 
 
 
-    }
+    },
+
+    {timestamps: true}
 )
+
+const Game = model("Game", GameSchema)
+
+export default Game
