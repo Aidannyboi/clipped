@@ -29,7 +29,9 @@ const GameSchema = new Schema (
         },
 
         GameImage: {
-            type: Buffer,
+            type:Buffer,
+
+            contentType: String,
 
             required : [true, "To prevent the spam of fake or incomplete games you must have a photo included."]
         }

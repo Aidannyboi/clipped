@@ -1,4 +1,3 @@
-import { all } from "axios";
 import Game from "../models/game.model.js";
 
 async function createGame (req, res) {
@@ -55,7 +54,7 @@ async function deleteGame (req, res) {
     try{
         const deletedGame = await Game.findByIdAndDelete(req.params.id)
 
-        res.json(deleteGame)
+        res.json(deletedGame)
     } catch(error){
         console.log(error)
         res.status(400).json(error)
