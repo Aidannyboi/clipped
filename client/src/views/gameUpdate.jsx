@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import axios from "axios";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 
-const GameForm = () => {
+const GameUpdate = () => {
 
     const [GameName, SetGameName] = useState("");
     const [GameNameError, SetGameNameError] = useState("");
@@ -19,6 +19,21 @@ const GameForm = () => {
     const [GameImage, SetGameImage] = useState("");
 
     const navigate = useNavigate();
+
+    const {id} = useParams();
+
+    useEffect(() => {
+        axios.get("http://localhost:9999/api/game/" + id)
+            .then(res => {
+                SetGameName(res.data.GameName)
+                SetGameDescription(res.data.GameDescription)
+                SetGameDevelopers(res.data.GameDevelopers)
+                SetGameImage("")
+            }).catch(err =>  {
+                console.log(id)
+                console.log(err);
+            })
+    }, [id])
 
     const handleGameName = (e) => {
         SetGameName(e.target.value)
@@ -79,7 +94,8 @@ const GameForm = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:9999/api/games', {
+
+        axios.put("http://localhost:9999/api/game/" + id, {
             GameName,
             GameDescription,
             GameDevelopers,
@@ -90,25 +106,25 @@ const GameForm = () => {
             console.log(res.data);
             navigate("/games")
         }).catch((err) => {
-                console.log(err);
-            })
+            console.log(err);
+        })
     }
 
     return (
         <>
 
             <div>
-            <form className="formDesign" onSubmit={submitHandler}>
+                <form className="formDesign" onSubmit={submitHandler}>
                     <div className="inputDesign">
                         <label>Game name:</label>
                         <p>{GameNameError}</p>
-                        <input type="text" onChange={handleGameName} value={GameName} />
+                        <input type="text" onChange={handleGameName} value={GameName}/>
                     </div>
 
                     <div className="inputDesign">
                         <label>Game Description:</label>
                         <p>{GameDescriptionError}</p>
-                        <textarea type="text" onChange={handleGameDescription} value={GameDescription} rows={5} cols={40} />
+                        <input type="text" onChange={handleGameDescription} value={GameDescription} />
                     </div>
 
                     <div className="inputDesign">
@@ -122,11 +138,11 @@ const GameForm = () => {
                         <input type="file" onChange={handleGameImage} value={GameImage}/>
                     </div>
 
-                    <button className="inputDesign"> Submit Game</button>
+                    <button className="inputDesign"> Update Game</button>
                 </form>
             </div>
         </>
     )
 }
 
-export default GameForm
+export default GameUpdate

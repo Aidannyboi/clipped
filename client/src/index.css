@@ -66,3 +66,21 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.gameBox{
+  margin: 10px;
+  height: 350px;
+  width: 200px;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.formDesign{
+  display: flex;
+  flex-direction: column;
+}
+
+.inputDesign{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

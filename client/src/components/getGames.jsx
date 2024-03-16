@@ -20,7 +20,7 @@ const GetGames = () => {
         return(
             games.map((game, index) => (
                 <Link to={'/game/' + game._id + '/details'}>
-                    <button>
+                    <button className="gameBox">
                         <h1> {game.GameName} </h1>
                     </button>
                 </Link>
