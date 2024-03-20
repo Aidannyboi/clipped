@@ -28,7 +28,7 @@ const GameUpdate = () => {
                 SetGameName(res.data.GameName)
                 SetGameDescription(res.data.GameDescription)
                 SetGameDevelopers(res.data.GameDevelopers)
-                SetGameImage("")
+                SetGameImage(res.data.GameImage)
             }).catch(err =>  {
                 console.log(id)
                 console.log(err);
@@ -135,7 +135,7 @@ const GameUpdate = () => {
 
                     <div className="inputDesign formDesign">
                         <label>Game Image:</label>
-                        <input type="file" onChange={handleGameImage} value={GameImage}/>
+                        <input type="text" onChange={handleGameImage} value={GameImage}/>
                     </div>
 
                     <button className="inputDesign"> Update Game</button>

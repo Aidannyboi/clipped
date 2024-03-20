@@ -37,7 +37,7 @@ const GetOneGame = () => {
             <h1> {game.GameName} </h1>
             <h2>Created by: {game.GameDevelopers}</h2>
             <p>{game.GameDescription}</p>
-            <img src={`data:image/png;base64,${game.GameImage}`}/>
+            <img src={game.GameImage}/>
             <div>
                 <button onClick={DeleteGame}>Delete Game</button>
 

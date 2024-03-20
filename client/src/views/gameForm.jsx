@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import axios from "axios";
 
@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 
 const GameForm = () => {
+
+    const [gameList, setGameList] = useState([])
 
     const [GameName, SetGameName] = useState("");
     const [GameNameError, SetGameNameError] = useState("");
@@ -119,7 +121,7 @@ const GameForm = () => {
 
                     <div className="inputDesign formDesign">
                         <label>Game Image:</label>
-                        <input type="file" onChange={handleGameImage} value={GameImage}/>
+                        <input type="text" onChange={handleGameImage} value={GameImage}/>
                     </div>
 
                     <button className="inputDesign"> Submit Game</button>
