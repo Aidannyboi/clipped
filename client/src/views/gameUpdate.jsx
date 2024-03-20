@@ -113,7 +113,17 @@ const GameUpdate = () => {
     return (
         <>
 
-            <div>
+            <div className="HeaderStyle">
+                <h1 style={{color: "green"}}>
+                    Clipped
+                </h1>
+                <div>
+                    <Link to={'/games'}><button className="HeaderButton">Home</button></Link>
+                    <Link to={'/game/' + id + '/details'}><button className="HeaderButton">Details</button></Link>
+                </div>
+            </div>
+
+            <div className="BodyStyle">
                 <form className="formDesign" onSubmit={submitHandler}>
                     <div className="inputDesign">
                         <label>Game name:</label>

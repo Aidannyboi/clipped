@@ -77,10 +77,39 @@ button:focus-visible {
 
 .formDesign{
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
 }
 
 .inputDesign{
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+.HeaderStyle{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vh;
+  border: 5px solid;
+  border-color: green;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.HeaderButton{
+  height: 75px;
+  width: 150px;
+  margin: 10px;
+}
+
+.BodyStyle{
+  border: 5px solid;
+  border-color: green;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.ButtonForm{
+  margin: 10px;
+}
+

@@ -98,8 +98,16 @@ const GameForm = () => {
 
     return (
         <>
+            <div className="HeaderStyle">
+                <h1 style={{color: "green"}}>
+                    Clipped
+                </h1>
+                <div>
+                    <Link to={'/games'}><button className="HeaderButton">Home</button></Link>
+                </div>
+            </div>
 
-            <div>
+            <div className="BodyStyle">
             <form className="formDesign" onSubmit={submitHandler}>
                     <div className="inputDesign">
                         <label>Game name:</label>
@@ -119,8 +127,9 @@ const GameForm = () => {
                         <input type="text" onChange={handleGameDevelopers} value={GameDevelopers}/>
                     </div>
 
-                    <div className="inputDesign formDesign">
+                    <div className="inputDesign">
                         <label>Game Image:</label>
+                        <p></p>
                         <input type="text" onChange={handleGameImage} value={GameImage}/>
                     </div>
 

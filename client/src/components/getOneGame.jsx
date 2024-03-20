@@ -34,14 +34,25 @@ const GetOneGame = () => {
 
     return (
         <>
-            <h1> {game.GameName} </h1>
-            <h2>Created by: {game.GameDevelopers}</h2>
-            <p>{game.GameDescription}</p>
-            <img src={game.GameImage}/>
-            <div>
-                <button onClick={DeleteGame}>Delete Game</button>
+            <div className="HeaderStyle">
+                <h1 style={{color: "green"}}>
+                    Clipped
+                </h1>
+                <div>
+                    <Link to={'/games'}><button className="HeaderButton">Home</button></Link>
+                </div>
+            </div>
 
-                <Link to={'/game/' + game._id + '/update'}><button>Update Game</button></Link>
+            <div className="BodyStyle">
+                <h1> {game.GameName} </h1>
+                <h2>Created by: {game.GameDevelopers}</h2>
+                <p>{game.GameDescription}</p>
+                <img src={game.GameImage}/>
+                <div>
+                    <button className="ButtonForm" onClick={DeleteGame}>Delete Game</button>
+
+                    <Link className="ButtonForm" to={'/game/' + game._id + '/update'}><button>Update Game</button></Link>
+                </div>
             </div>
         </>
     )
